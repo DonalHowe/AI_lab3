@@ -1,25 +1,29 @@
 #include "Enemy.h"
 
+sf::Sprite Enemy::GetSprite()
+{
+	return m_sprite;
+}
+
 void Enemy::initilize()
 {
 	srand(time(nullptr));
-	if (!m_texture.loadFromFile("zebra.png"))
+	if (!m_texture.loadFromFile("alien.png"))
 	{
 		cout << "error loading texture" << endl;
 	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setPosition(100, 100);
-	m_sprite.setScale(.5, .5);
+	m_sprite.setScale(1.5, 1.5);
 	choice= rand() % 3;
 
 }
 
-void Enemy::movement()
+void Enemy::update(double dt)
 {
 	
 	counter++;
 	
-	cout << counter << endl;
 	if (counter < 1000) {
 		m_sprite.move(.15, 0);
 	}

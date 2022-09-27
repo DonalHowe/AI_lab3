@@ -9,8 +9,9 @@ class Enemy
 	int counter = 0;
 	int choice = 0;
 public :
+	sf::Sprite GetSprite();
 	void initilize();
-	void movement();
+	void update(double dt);
 	void render(sf::RenderWindow& t_window);
 };
 
