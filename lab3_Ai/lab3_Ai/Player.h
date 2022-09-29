@@ -10,13 +10,13 @@ class Player
 	sf::Vector2f m_velocity;
 	const int MAX_SPEED = 2;
 	float m_speed = 2;
-	float accel = 0.5f;
+	float accel = 0.05f;
 	float decel = 0.02f;
 public:
 	sf::Sprite GetSprite();
 	void setPostion(sf::Vector2f t_pos);
 	void initilize();
-	void update(double dt);
+	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
 
 

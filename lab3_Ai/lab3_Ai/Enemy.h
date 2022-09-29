@@ -11,7 +11,7 @@ class Enemy
 public :
 	sf::Sprite GetSprite();
 	void initilize();
-	void update(double dt);
+	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
 };
 

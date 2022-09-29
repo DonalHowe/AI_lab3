@@ -19,7 +19,7 @@ void Enemy::initilize()
 
 }
 
-void Enemy::update(double dt)
+void Enemy::update(sf::Time t_deltaTime  )
 {
 	
 	counter++;

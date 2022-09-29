@@ -12,10 +12,11 @@ void Player::initilize()
 	m_sprite.setTexture(m_texture);
 }
 
-void Player::update(double dt)
+void Player::update(sf::Time t_deltaTime)
 {
-    cout<< std::to_string(m_velocity.x) << " , ";
-    cout<< std::to_string(m_velocity.y) << std::endl;
+    cout << std::to_string(m_velocity.x) << " , " << std::to_string(m_velocity.y) << endl;
+   
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         m_velocity.x -= accel;
         m_sprite.setRotation(-90);
@@ -52,25 +53,10 @@ void Player::update(double dt)
         m_velocity.y = MAX_SPEED;
     }
 
+    m_sprite.move(m_velocity);
 
-    m_postiion += m_velocity;
-    m_sprite.setPosition(m_postiion);
-    if (m_sprite.getPosition().x > 600)
-    {
-        m_sprite.setPosition(sf::Vector2f{ 50,m_sprite.getPosition().y });
-    }
-    else if (m_sprite.getPosition().x < 0)
-    {
-    	m_sprite.setPosition(sf::Vector2f{ 600-5,m_sprite.getPosition().y });
-    }
-    //if (thePlayer.GetSprite().getPosition().x > m_height)
-    //{
-    //	thePlayer.setPostion(sf::Vector2f{ thePlayer.GetSprite().getPosition().x ,5 });
-    //}
-    //else if (thePlayer.GetSprite().getPosition().x < 0)
-    //{
-    //	thePlayer.setPostion(sf::Vector2f{ thePlayer.GetSprite().getPosition().x ,m_height-5 });
-    //}
+  
+ 
 }
 
 
