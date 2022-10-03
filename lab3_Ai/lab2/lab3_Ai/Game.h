@@ -5,6 +5,10 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Enemy.h"
+#include "ScreenSize.h"
+#include "seekAlien.h"
+#include "fleeAlien.h"
+#include "arriveAlien.h"
 
 class Game
 {
@@ -15,6 +19,9 @@ public:
 	void run();
 	Enemy enemy;
 	Player player;
+	seekAlien seekNpc;
+	arriveAlien arriveNpc;
+	fleeAlien fleeNpc;
 private:
 
 	void processEvents();

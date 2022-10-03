@@ -14,7 +14,7 @@ void Player::initilize()
 
 void Player::update(sf::Time t_deltaTime)
 {
-    cout << std::to_string(m_velocity.x) << " , " << std::to_string(m_velocity.y) << endl;
+
    
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {

@@ -6,12 +6,14 @@
 
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 800U, 600U, 32U }, "SFML Game" },
-	m_exitGame{false} //when true game will exit
+	m_window{ sf::VideoMode{ ScreenSize::M_WIDTH, ScreenSize::M_HEIGHT, 32U }, "Ai Labs" },m_exitGame{false}//ue game will exit
+
 {
 
 	player.initilize();
-	enemy.initilize();
+	enemy.initilise();
+	
+	
 }
 
 
@@ -72,6 +74,9 @@ void Game::update(sf::Time t_deltaTime)
 {
 	enemy.update(t_deltaTime);
 	player.update(t_deltaTime);
+	arriveNpc.update(t_deltaTime,player);
+	fleeNpc.update(t_deltaTime, player);
+	seekNpc.update(t_deltaTime,player);
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -85,6 +90,9 @@ void Game::render()
 
 	player.render(m_window);
 	enemy.render(m_window);
+	seekNpc.render(m_window);
+	arriveNpc.render(m_window);
+	fleeNpc.render(m_window);
 	
 	m_window.display();
 }

@@ -19,15 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="arriveAlien.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="fleeAlien.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="seekAlien.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arriveAlien.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="fleeAlien.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ScreenSize.h" />
+    <ClInclude Include="seekAlien.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
