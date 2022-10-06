@@ -13,7 +13,9 @@ Game::Game() :
 	player.initilize();
 	enemy.initilise();
 	
-	
+	arriveNpc[0].m_sprite.setPosition(600, 500);
+	arriveNpc[1].m_sprite.setPosition(50, 500);
+	arriveNpc[1].m_sprite.setColor(sf::Color::Cyan);
 }
 
 
@@ -72,11 +74,38 @@ void Game::processKeys(sf::Event t_event)
 
 void Game::update(sf::Time t_deltaTime)
 {
-	enemy.update(t_deltaTime);
+	
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+		seekNpc.update(t_deltaTime, player);
+   }
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+
+		enemy.update(t_deltaTime);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+		arriveNpc[0].update(t_deltaTime, player);
+		arriveNpc[1].update(t_deltaTime, player);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+	
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {
+		purseueNpc.update(t_deltaTime, player);
+	}
+		
+	
+	
+		
+
+
+	
+
+	
 	player.update(t_deltaTime);
-	arriveNpc.update(t_deltaTime,player);
-	fleeNpc.update(t_deltaTime, player);
-	seekNpc.update(t_deltaTime,player);
+	
+	
+	
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -88,11 +117,21 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 
+	
+		seekNpc.render(m_window);
+
+	
+		arriveNpc[0].render(m_window);
+		arriveNpc[1].render(m_window);
+		purseueNpc.render(m_window);
+	
+		enemy.render(m_window);
+
 	player.render(m_window);
-	enemy.render(m_window);
-	seekNpc.render(m_window);
-	arriveNpc.render(m_window);
-	fleeNpc.render(m_window);
+	
+	
+	
+	
 	
 	m_window.display();
 }

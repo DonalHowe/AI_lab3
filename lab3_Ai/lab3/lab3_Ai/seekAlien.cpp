@@ -3,12 +3,13 @@
 void seekAlien::update(sf::Time& t_deltatime,Player & t_player)
 {
 	seek(t_deltatime, t_player);
+	m_text.setPosition(m_sprite.getPosition().x + 55, m_sprite.getPosition().y + 10);
 }
 
 void seekAlien::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_sprite);
-
+	t_window.draw(m_text);
 }
 
 seekAlien::seekAlien()
@@ -33,6 +34,14 @@ void seekAlien::setupAlien()
 
 	m_radius.setRadius(radiusCircle);
 	m_radius.setFillColor(sf::Color::Red);
+	if (!m_font.loadFromFile("BebasNeue.otf"))
+	{
+		std::cout << "problem loading font" << std::endl;
+	}
+	m_text.setFont(m_font);
+	m_text.setString("SEEK");
+	m_text.setFillColor(sf::Color::Green);
+	m_text.setCharacterSize(15u);
 }
 
 void seekAlien::seek(sf::Time& t_deltaTime, Player& t_player)

@@ -10,13 +10,17 @@ void Player::initilize()
 	m_sprite.setScale(1.5, 1.5);
     m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
 	m_sprite.setTexture(m_texture);
+
+
+    m_prediction.setRadius(15u);
+    m_prediction.setFillColor(sf::Color::Blue);
 }
 
 void Player::update(sf::Time t_deltaTime)
 {
 
    
-
+   
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         m_velocity.x -= accel;
         m_sprite.setRotation(-90);
@@ -61,6 +65,21 @@ void Player::update(sf::Time t_deltaTime)
 
 
 
+sf::Vector2f Player::GetheadingPoint()
+{
+    
+
+    float headingX = playerZone * sin(m_sprite.getRotation());
+    float headingY = playerZone * -cos(m_sprite.getRotation());
+   
+
+
+    sf::Vector2f m_heading(headingX + m_sprite.getPosition().x, headingY + m_sprite.getPosition().y);
+    m_prediction.setPosition(m_heading);
+
+    return m_heading;
+}
+
 sf::Sprite Player::GetSprite()
 {
     return m_sprite;
@@ -74,4 +93,5 @@ void Player::setPostion(sf::Vector2f t_pos)
 void Player::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_sprite);
+    t_window.draw(m_prediction);
 }

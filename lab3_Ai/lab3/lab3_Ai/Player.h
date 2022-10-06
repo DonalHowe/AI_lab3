@@ -12,7 +12,11 @@ class Player
 	float m_speed = 2;
 	float accel = 0.05f;
 	float decel = 0.02f;
+	float playerZone = 360;
+	
 public:
+	sf::Vector2f GetheadingPoint();
+	sf::CircleShape m_prediction;
 	sf::Sprite GetSprite();
 	void setPostion(sf::Vector2f t_pos);
 	void initilize();

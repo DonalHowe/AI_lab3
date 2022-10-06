@@ -8,18 +8,12 @@ Enemy::Enemy()
 
 void Enemy::update(sf::Time& t_deltaTime)
 {
-	if (m_alive == true)
-	{
 		randomNum();
 		boundryCheck();
 		kinematicWander(t_deltaTime);
 		m_WanderLine.clear();
-		sf::Vertex begin{ m_sprite.getPosition(),sf::Color::Yellow };
-		m_WanderLine.append(begin);
-		sf::Vertex end{ m_linePT, sf::Color::Yellow };
-		m_WanderLine.append(end);
-		m_name.setPosition(m_sprite.getPosition());
-	}
+	
+		m_text.setPosition(m_sprite.getPosition().x + 55, m_sprite.getPosition().y + 10);
 }
 
 void Enemy::render(sf::RenderWindow& t_window)
@@ -31,7 +25,7 @@ void Enemy::render(sf::RenderWindow& t_window)
 			t_window.draw(m_WanderLine);
 		}
 		t_window.draw(m_sprite);
-		t_window.draw(m_name);
+		t_window.draw(m_text);
 
 		
 	}
@@ -96,6 +90,17 @@ void Enemy::setupSprites()
 	radius.setRadius(radiusF);
 	radius.setPosition(m_sprite.getPosition().x - radiusF, m_sprite.getPosition().y - radiusF);
 
+	if (!m_font.loadFromFile("BebasNeue.otf"))
+	{
+		std::cout << "problem loading font" << std::endl;
+	}
+	m_text.setFont(m_font);
+	m_text.setString("wanderer");
+	m_text.setFillColor(sf::Color::Cyan);
+	m_text.setCharacterSize(15u);
+
+
+	
 }
 
 void Enemy::kinematicWander(sf::Time& t_deltaTime)

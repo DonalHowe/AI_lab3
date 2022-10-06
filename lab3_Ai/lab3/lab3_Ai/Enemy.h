@@ -7,6 +7,7 @@ class Enemy
 {
 	sf::Texture m_texture; 
 	sf::Sprite m_sprite;
+	
 	sf::CircleShape radius;
 	float radiusF = 100.0f;
 	
@@ -17,7 +18,7 @@ class Enemy
 	bool m_tracerStatus = false;
 
 	sf::Font m_font;
-	sf::Text m_name;
+	sf::Text m_text;
 	void kinematicWander(sf::Time& t_deltaTime);
 	int m_offset = 16;
 	float RadianAngle = 0;

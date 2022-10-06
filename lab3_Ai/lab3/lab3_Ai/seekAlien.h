@@ -10,6 +10,8 @@ class seekAlien
 	sf::Texture m_texture;
 	sf::Vector2f m_velocity;
 	sf::CircleShape m_radius;
+	sf::Text m_text;
+	sf::Font m_font;
 	float radiusCircle = 35.0f;
 	float angle = 0.0f;
 	float pi = 3.14159f;

@@ -7,8 +7,8 @@
 #include "Enemy.h"
 #include "ScreenSize.h"
 #include "seekAlien.h"
-#include "fleeAlien.h"
 #include "arriveAlien.h"
+#include "pursue.h"
 
 class Game
 {
@@ -20,10 +20,12 @@ public:
 	Enemy enemy;
 	Player player;
 	seekAlien seekNpc;
-	arriveAlien arriveNpc;
-	fleeAlien fleeNpc;
+	arriveAlien arriveNpc[2];
+	pursue purseueNpc;
+	
 private:
-
+	sf::Font gameFont;
+	sf::Text gameText;
 	void processEvents();
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);

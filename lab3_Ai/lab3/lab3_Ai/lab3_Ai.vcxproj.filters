@@ -39,7 +39,7 @@
     <ClCompile Include="arriveAlien.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fleeAlien.cpp">
+    <ClCompile Include="pursue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClInclude Include="arriveAlien.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fleeAlien.h">
+    <ClInclude Include="pursue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
